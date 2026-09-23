@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kamran Ali | Logistics & Operations Manager Portfolio</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+              accent: '#d97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .dark .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #0284c7 0%, #2563eb 50%, #0d9488 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .dark .text-gradient {
+      background: linear-gradient(135deg, #38bdf8 0%, #60a5fa 50%, #2dd4bf 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans transition-colors duration-300 selection:bg-brand-500 selection:text-white">
+
+  <!-- Canvas Animation Background -->
+  <canvas id="canvas-bg" class="fixed inset-0 pointer-events-none z-0 opacity-40 dark:opacity-30"></canvas>
+
+  <div class="relative z-10 flex flex-col min-h-screen">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 glass-card transition-all duration-300 border-b border-slate-200/50 dark:border-slate-800/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <a href="#hero" class="flex items-center space-x-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-blue-500 flex items-center justify-center text-white font-bold text-xl shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+            KA
+          </div>
+          <div class="flex flex-col">
+            <span class="font-extrabold text-lg leading-none tracking-tight">Kamran Ali</span>
+            <span class="text-xs text-brand-600 dark:text-brand-400 font-medium">Logistics & Operations</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 font-medium text-sm">
+          <a href="#about" class="px-3 py-2 rounded-lg hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors">About</a>
+          <a href="#competencies" class="px-3 py-2 rounded-lg hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors">Competencies</a>
+          <a href="#experience" class="px-3 py-2 rounded-lg hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors">Experience</a>
+          <a href="#achievements" class="px-3 py-2 rounded-lg hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors">Achievements</a>
+          <a href="#skills" class="px-3 py-2 rounded-lg hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors">Skills & Certs</a>
+          <a href="#contact" class="px-3 py-2 rounded-lg hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-colors">Contact</a>
+        </nav>
+
+        <div class="flex items-center space-x-3">
+          <!-- Theme Toggle -->
+          <button id="theme-toggle" class="w-10 h-10 rounded-xl bg-slate-200/70 dark:bg-slate-800/80 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors" aria-label="Toggle Theme">
+            <i class="fa-solid fa-moon dark:hidden"></i>
+            <i class="fa-solid fa-sun hidden dark:block text-amber-400"></i>
+          </button>
+
+          <a href="#contact" class="hidden sm:inline-flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-medium text-sm shadow-md shadow-brand-600/30 transition-all hover:scale-[1.02]">
+            <span>Get In Touch</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
+
+          <!-- Mobile Menu Toggle Button -->
+          <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-xl bg-slate-200/70 dark:bg-slate-800/80 flex items-center justify-center text-slate-700 dark:text-slate-300 focus:outline-none">
+            <i class="fa-solid fa-bars text-lg"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Navigation -->
+      <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 px-4 pt-2 pb-4 space-y-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md">
+        <a href="#about" class="block px-3 py-2 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800">About</a>
+        <a href="#competencies" class="block px-3 py-2 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Competencies</a>
+        <a href="#experience" class="block px-3 py-2 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Experience</a>
+        <a href="#achievements" class="block px-3 py-2 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Achievements</a>
+        <a href="#skills" class="block px-3 py-2 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Skills & Certs</a>
+        <a href="#contact" class="block px-3 py-2 rounded-lg font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="pt-12 pb-20 lg:pt-20 lg:pb-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Text Info -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand-50 dark:bg-brand-900/40 border border-brand-200 dark:border-brand-800 text-brand-700 dark:text-brand-300 text-xs sm:text-sm font-semibold">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            <span>Based in Dubai, UAE • Employment Visa Valid</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+            Hi, I'm <span class="text-gradient">Kamran Ali</span>
+          </h1>
+
+          <div class="text-xl sm:text-2xl font-semibold text-slate-600 dark:text-slate-300 h-10 flex items-center justify-center lg:justify-start">
+            <span id="typing-text" class="border-r-2 border-brand-500 pr-1"></span>
+          </div>
+
+          <p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            Results-driven Logistics and Operations Manager with <strong class="text-slate-900 dark:text-white font-semibold">11+ years of experience</strong> in warehouse management, logistics operations, supply chain coordination, inventory control, fleet management, and cold storage operations.
+          </p>
+
+          <!-- Contact Badges -->
+          <div class="flex flex-wrap gap-3 justify-center lg:justify-start text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+            <a href="mailto:Kamranali514@outlook.com" class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800/80 hover:bg-brand-50 dark:hover:bg-slate-700 transition-colors">
+              <i class="fa-solid fa-envelope text-brand-600 dark:text-brand-400"></i>
+              <span>Kamranali514@outlook.com</span>
+            </a>
+            <a href="tel:+971547321756" class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800/80 hover:bg-brand-50 dark:hover:bg-slate-700 transition-colors">
+              <i class="fa-solid fa-phone text-brand-600 dark:text-brand-400"></i>
+              <span>+971-54-7321-756</span>
+            </a>
+            <a href="https://linkedin.com/in/kami514" target="_blank" class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800/80 hover:bg-brand-50 dark:hover:bg-slate-700 transition-colors">
+              <i class="fa-brands fa-linkedin text-brand-600 dark:text-brand-400"></i>
+              <span>linkedin.com/in/kami514</span>
+            </a>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+            <a href="#contact" class="px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-base shadow-lg shadow-brand-600/30 transition-all hover:-translate-y-0.5">
+              Contact Me Directly
+            </a>
+            <a href="#experience" class="px-6 py-3.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-base transition-all hover:-translate-y-0.5">
+              Explore Career Journey
+            </a>
+          </div>
+
+          <!-- Highlight Key Stats -->
+          <div class="pt-8 grid grid-cols-3 gap-4 border-t border-slate-200 dark:border-slate-800">
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-brand-600 dark:text-brand-400">11+</div>
+              <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium">Years Experience</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-brand-600 dark:text-brand-400">40+</div>
+              <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium">Team Members Led</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-brand-600 dark:text-brand-400">98%+</div>
+              <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium">On-Time Delivery Rate</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile Card & Image -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-sm">
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-600 via-blue-500 to-teal-400 rounded-3xl blur opacity-30 dark:opacity-50"></div>
+            
+            <div class="relative glass-card rounded-3xl overflow-hidden p-3 shadow-2xl">
+              <div class="aspect-[4/5] rounded-2xl overflow-hidden relative group">
+                <img src="5e01e10f-88cd-4a79-bba1-9a1c80fcabf4(1).jpg" alt="Kamran Ali" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
+                  <div class="font-bold text-lg">Kamran Ali</div>
+                  <div class="text-xs text-slate-300">Operations & Logistics Professional</div>
+                  
+                  <div class="mt-3 flex items-center space-x-2 text-xs bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-lg w-max">
+                    <i class="fa-solid fa-id-card text-brand-400"></i>
+                    <span>UAE LMV License (Cat 3)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Professional Summary Section -->
+    <section id="about" class="py-16 bg-slate-100/60 dark:bg-slate-900/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-2">Professional Summary</h2>
+          <h3 class="text-3xl font-extrabold text-slate-900 dark:text-white">Optimizing Supply Chains & Operational Excellence</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="glass-card p-6 rounded-2xl shadow-sm border border-slate-200/60 dark:border-slate-800">
+            <div class="w-12 h-12 rounded-xl bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-truck-ramp-box"></i>
+            </div>
+            <h4 class="text-xl font-bold mb-2">Warehouse & Cold Storage</h4>
+            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              Proven expertise in supervising fulfillment operations across 5 business entities, managing racking systems, cold storage divisions, and optimizing layout utilization.
+            </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl shadow-sm border border-slate-200/60 dark:border-slate-800">
+            <div class="w-12 h-12 rounded-xl bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-route"></i>
+            </div>
+            <h4 class="text-xl font-bold mb-2">Fleet & Dispatch Coordination</h4>
+            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              Managing 15+ commercial vehicles with route planning and dispatch schedules, maintaining a 98%+ on-time delivery track record across UAE & international channels.
+            </p>
+          </div>
+
+          <div class="glass-card p-6 rounded-2xl shadow-sm border border-slate-200/60 dark:border-slate-800">
+            <div class="w-12 h-12 rounded-xl bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl mb-4">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h4 class="text-xl font-bold mb-2">Compliance & Governance</h4>
+            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              Adept at local regulatory requirements including RTA vehicle registration, Dubai Municipality inspections, food safety (PIC Advanced Certified), and Dubai Police liaison.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Competencies Grid -->
+    <section id="competencies" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-2">Key Areas of Expertise</h2>
+        <h3 class="text-3xl font-extrabold text-slate-900 dark:text-white">Core Competencies</h3>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div class="glass-card p-4 rounded-xl text-center hover:border-brand-500 transition-all hover:-translate-y-1">
+          <i class="fa-solid fa-boxes-packing text-2xl text-brand-600 dark:text-brand-400 mb-2"></i>
+          <div class="text-xs font-bold text-slate-800 dark:text-slate-200">Logistics & Operations</div>
+        </div>
+        <div class="glass-card p-4 rounded-xl text-center hover:border-brand-500 transition-all hover:-translate-y-1">
+          <i class="fa-solid fa-diagram-project text-2xl text-brand-600 dark:text-brand-400 mb-2"></i>
+          <div class="text-xs font-bold text-slate-800 dark:text-slate-200">Supply Chain Coordination</div>
+        </div>
+        <div class="glass-card p-4 rounded-xl text-center hover:border-brand-500 transition-all hover:-translate-y-1">
+          <i class="fa-solid fa-warehouse text-2xl text-brand-600 dark:text-brand-400 mb-2"></i>
+          <div class="text-xs font-bold text-slate-800 dark:text-slate-200">Warehouse Fulfillment</div>
+        </div>
+        <div class="glass-card p-4 rounded-xl text-center hover:border-brand-500 transition-all hover:-translate-y-1">
+          <i class="fa-solid fa-barcode text-2xl text-brand-600 dark:text-brand-400 mb-2"></i>
+          <div class="text-xs font-bold text-slate-800 dark:text-slate-200">Inventory & Stock Control</div>
+        </div>
+        <div class="glass-card p-4 rounded-xl text-center hover:border-brand-500 transition-all hover:-translate-y-1">
+          <i class="fa-solid fa-snowflake text-2xl text-brand-600 dark:text-brand-400 mb-2"></i>
+          <div class="text-xs font-bold text-slate-800 dark:text-slate-200">Cold Storage Operations</div>
+        </div>
+        <div class="glass-card p-4 rounded-xl text-center hover:border-brand-500 transition-all hover:-translate-y-1">
+          <i class="fa-solid fa-van-shuttle text-2xl text-brand-600 dark:text-brand-400 mb-2"></i>
+          <div class="text-xs font-bold text-slate-800 dark:text-slate-200">Fleet Management</div>
+        </div>
+        <div class="glass-card p-4 rounded-xl text-center hover:border-brand-500 transition-all hover:-translate-y-1">
+          <i class="fa-solid fa-map-location-dot text-2xl text-brand-600 dark:text-brand-400 mb-2"></i>
+          <div class="text-xs font-bold text-slate-800 dark:text-slate-200">Route Planning & Dispatch</div>
+        </div>
+        <div class="glass-card p-4 rounded-xl text-center hover:border-brand-500 transition-all hover:-translate-y-1">
+          <i class="fa-solid fa-laptop-code text-2xl text-brand-600 dark:text-brand-400 mb-2"></i>
+          <div class="text-xs font-bold text-slate-800 dark:text-slate-200">ERP & WMS Systems</div>
+        </div>
+        <div class="glass-card p-4 rounded-xl text-center hover:border-brand-500 transition-all hover:-translate-y-1">
+          <i class="fa-solid fa-clipboard-check text-2xl text-brand-600 dark:text-brand-400 mb-2"></i>
+          <div class="text-xs font-bold text-slate-800 dark:text-slate-200">SOP Implementation</div>
+        </div>
+        <div class="glass-card p-4 rounded-xl text-center hover:border-brand-500 transition-all hover:-translate-y-1">
+          <i class="fa-solid fa-users-gear text-2xl text-brand-600 dark:text-brand-400 mb-2"></i>
+          <div class="text-xs font-bold text-slate-800 dark:text-slate-200">Team Leadership (40+)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Experience Timeline -->
+    <section id="experience" class="py-20 bg-slate-100/60 dark:bg-slate-900/50">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-2">Work History</h2>
+          <h3 class="text-3xl font-extrabold text-slate-900 dark:text-white">Professional Experience</h3>
+        </div>
+
+        <div class="relative border-l-2 border-brand-500/30 ml-4 md:ml-32 space-y-12">
+          
+          <!-- Experience Item 1 -->
+          <div class="relative pl-8 md:pl-10">
+            <!-- Timeline Node -->
+            <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs font-bold shadow-lg shadow-brand-600/40">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            
+            <div class="md:absolute md:-left-36 md:top-1.5 text-xs font-semibold uppercase tracking-wider text-brand-600 dark:text-brand-400 mb-2 md:mb-0">
+              May 2021 – Present
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl shadow-sm">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Operations and Logistics Manager</h4>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300">MK GROUP | Dubai, UAE</span>
+              </div>
+              <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
+                <li>Lead, train, and supervise a cross-functional team of <strong>40+ employees</strong>, including warehouse operators, inventory staff, and fleet drivers.</li>
+                <li>Manage transportation planning and dispatch schedules for a fleet of <strong>15+ commercial vehicles</strong>, maintaining a reported <strong>98%+ on-time delivery rate</strong>.</li>
+                <li>Oversee warehouse operations, material handling, racking systems, and storage utilization across <strong>five business entities</strong>.</li>
+                <li>Utilize ERP/WMS systems (1C Enterprise, Bitrix24, Focus7) to monitor inventory movements, improve stock visibility, and maintain inventory accuracy.</li>
+                <li>Coordinate procurement, transportation, warehouse operations, and delivery activities across general trading, foodstuff, and cold storage divisions.</li>
+                <li>Support regulatory compliance with <strong>RTA vehicle registration</strong>, <strong>Dubai Municipality inspections</strong>, and Dubai Police requirements.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience Item 2 -->
+          <div class="relative pl-8 md:pl-10">
+            <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-300 dark:bg-slate-700 text-slate-700 dark:text-slate-300 flex items-center justify-center text-xs font-bold">
+              <i class="fa-solid fa-boxes-stacked"></i>
+            </div>
+            
+            <div class="md:absolute md:-left-36 md:top-1.5 text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2 md:mb-0">
+              Nov 2020 – May 2021
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl shadow-sm">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Warehouse Team Leader / Supervisor</h4>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">MUMUSO | Dubai, UAE</span>
+              </div>
+              <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
+                <li>Supervised warehouse employees and coordinated daily work assignments and operational schedules.</li>
+                <li>Implemented appropriate storage methods and monitored inventory distribution activities.</li>
+                <li>Prepared and maintained documentation for incoming and outgoing retail inventory.</li>
+                <li>Coordinated with drivers and production teams to support delivery scheduling.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience Item 3 -->
+          <div class="relative pl-8 md:pl-10">
+            <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-300 dark:bg-slate-700 text-slate-700 dark:text-slate-300 flex items-center justify-center text-xs font-bold">
+              <i class="fa-solid fa-cart-flatbed"></i>
+            </div>
+            
+            <div class="md:absolute md:-left-36 md:top-1.5 text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2 md:mb-0">
+              Jun 2019 – Jul 2020
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl shadow-sm">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Warehouse Supervisor & Operations Assistant</h4>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Awok.com | Dubai, UAE</span>
+              </div>
+              <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
+                <li>Supervised receiving, shelving, picking, packing, sorting, and dispatch operations in an e-commerce hub.</li>
+                <li>Used WMS systems to monitor SKUs, delivery schedules, stock values, and dispatch statistics.</li>
+                <li>Monitored stock values and coordinated the clearance of old and damaged inventory.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience Item 4 -->
+          <div class="relative pl-8 md:pl-10">
+            <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-300 dark:bg-slate-700 text-slate-700 dark:text-slate-300 flex items-center justify-center text-xs font-bold">
+              <i class="fa-solid fa-clipboard-check"></i>
+            </div>
+            
+            <div class="md:absolute md:-left-36 md:top-1.5 text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2 md:mb-0">
+              Sep 2016 – Jul 2018
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl shadow-sm">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Quality Controller</h4>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Hi-Tech Group | Pakistan</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Monitored production processes for quality compliance, maintained QA testing records, and supported equipment calibration compliance.
+              </p>
+            </div>
+          </div>
+
+          <!-- Experience Item 5 -->
+          <div class="relative pl-8 md:pl-10">
+            <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-300 dark:bg-slate-700 text-slate-700 dark:text-slate-300 flex items-center justify-center text-xs font-bold">
+              <i class="fa-solid fa-wheat-awn"></i>
+            </div>
+            
+            <div class="md:absolute md:-left-36 md:top-1.5 text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2 md:mb-0">
+              May 2013 – Aug 2016
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl shadow-sm">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white">Logistics Assistant</h4>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Food & Agriculture Organization (FAO)</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Supervised shipping/receiving activities, coordinated international logistics material procurement, maintained documentation, and improved workplace safety.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Leadership Achievements & Case Studies -->
+    <section id="achievements" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-2">Impact & Milestones</h2>
+        <h3 class="text-3xl font-extrabold text-slate-900 dark:text-white">Key Leadership Accomplishments</h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Achievement 1 -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 relative overflow-hidden group">
+          <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-brand-500/10 rounded-full blur-xl group-hover:bg-brand-500/20 transition-all"></div>
+          <div class="flex items-center space-x-4 mb-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-600 to-blue-600 text-white flex items-center justify-center text-xl shadow-md">
+              <i class="fa-solid fa-car"></i>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold text-slate-900 dark:text-white">Launch of MK Cars Division</h4>
+              <span class="text-xs text-brand-600 dark:text-brand-400 font-semibold">International Logistics & Trade</span>
+            </div>
+          </div>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+            Spearheaded the complete establishment and execution of the new MK Cars division. Managed end-to-end vehicle procurement from China, quality inspections, international shipping documentation, and cross-border export procedures to Iran.
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-slate-800 font-medium">Procurement</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-slate-800 font-medium">Export Compliance</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-slate-800 font-medium">China to Middle East</span>
+          </div>
+        </div>
+
+        <!-- Achievement 2 -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 relative overflow-hidden group">
+          <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-emerald-500/10 rounded-full blur-xl group-hover:bg-emerald-500/20 transition-all"></div>
+          <div class="flex items-center space-x-4 mb-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white flex items-center justify-center text-xl shadow-md">
+              <i class="fa-solid fa-users-line"></i>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold text-slate-900 dark:text-white">HR Department Setup & Development</h4>
+              <span class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">Organizational Leadership</span>
+            </div>
+          </div>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+            Established and structured the HR infrastructure from the ground up for the group. Designed full lifecycle processes including recruitment, employee onboarding, official documentation, orientation, staff retention, and performance management.
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-slate-800 font-medium">Talent Acquisition</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-slate-800 font-medium">SOP Development</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-200/70 dark:bg-slate-800 font-medium">Retention Strategy</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Technical Skills & Certifications Section -->
+    <section id="skills" class="py-20 bg-slate-100/60 dark:bg-slate-900/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <!-- Technical Skills -->
+          <div class="lg:col-span-7 space-y-6">
+            <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white flex items-center space-x-3">
+              <i class="fa-solid fa-gears text-brand-600 dark:text-brand-400"></i>
+              <span>Technical Skills & Systems</span>
+            </h3>
+
+            <!-- Systems & Software Cards -->
+            <div class="space-y-4">
+              
+              <div class="glass-card p-5 rounded-2xl">
+                <div class="text-sm font-bold text-slate-900 dark:text-white mb-2">ERP, WMS & Business Systems</div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-lg bg-brand-500/10 text-brand-700 dark:text-brand-300 text-xs font-semibold border border-brand-500/20">1C Enterprise</span>
+                  <span class="px-3 py-1 rounded-lg bg-brand-500/10 text-brand-700 dark:text-brand-300 text-xs font-semibold border border-brand-500/20">Bitrix24</span>
+                  <span class="px-3 py-1 rounded-lg bg-brand-500/10 text-brand-700 dark:text-brand-300 text-xs font-semibold border border-brand-500/20">WMS Management</span>
+                  <span class="px-3 py-1 rounded-lg bg-brand-500/10 text-brand-700 dark:text-brand-300 text-xs font-semibold border border-brand-500/20">Focus7</span>
+                  <span class="px-3 py-1 rounded-lg bg-brand-500/10 text-brand-700 dark:text-brand-300 text-xs font-semibold border border-brand-500/20">CRM Systems</span>
+                </div>
+              </div>
+
+              <div class="glass-card p-5 rounded-2xl">
+                <div class="text-sm font-bold text-slate-900 dark:text-white mb-2">Data Analytics & Office Tools</div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-lg bg-slate-200 dark:bg-slate-800 text-xs font-medium">Microsoft Excel (Pivot Tables, VLOOKUP, Macros)</span>
+                  <span class="px-3 py-1 rounded-lg bg-slate-200 dark:bg-slate-800 text-xs font-medium">Tableau</span>
+                  <span class="px-3 py-1 rounded-lg bg-slate-200 dark:bg-slate-800 text-xs font-medium">Google Workspace</span>
+                </div>
+              </div>
+
+              <div class="glass-card p-5 rounded-2xl">
+                <div class="text-sm font-bold text-slate-900 dark:text-white mb-2">Digital & AI Tools</div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-lg bg-slate-200 dark:bg-slate-800 text-xs font-medium">ChatGPT / AI Integration</span>
+                  <span class="px-3 py-1 rounded-lg bg-slate-200 dark:bg-slate-800 text-xs font-medium">Adobe Photoshop & InDesign</span>
+                  <span class="px-3 py-1 rounded-lg bg-slate-200 dark:bg-slate-800 text-xs font-medium">CapCut</span>
+                </div>
+              </div>
+
+              <!-- Languages -->
+              <div class="glass-card p-5 rounded-2xl">
+                <div class="text-sm font-bold text-slate-900 dark:text-white mb-2">Multilingual Proficiency</div>
+                <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                  <div class="p-2 rounded-lg bg-white/50 dark:bg-slate-800/50 font-medium">English (C1)</div>
+                  <div class="p-2 rounded-lg bg-white/50 dark:bg-slate-800/50 font-medium">Urdu</div>
+                  <div class="p-2 rounded-lg bg-white/50 dark:bg-slate-800/50 font-medium">Arabic</div>
+                  <div class="p-2 rounded-lg bg-white/50 dark:bg-slate-800/50 font-medium">Pashto</div>
+                  <div class="p-2 rounded-lg bg-white/50 dark:bg-slate-800/50 font-medium">Persian</div>
+                  <div class="p-2 rounded-lg bg-white/50 dark:bg-slate-800/50 font-medium">Hindi</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Certifications & Education -->
+          <div class="lg:col-span-5 space-y-6">
+            <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white flex items-center space-x-3">
+              <i class="fa-solid fa-certificate text-brand-600 dark:text-brand-400"></i>
+              <span>Certifications & Education</span>
+            </h3>
+
+            <div class="space-y-4">
+              
+              <!-- Certifications -->
+              <div class="glass-card p-5 rounded-2xl space-y-3">
+                <div class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">Professional Certifications</div>
+                
+                <div class="flex items-start space-x-3">
+                  <i class="fa-solid fa-award text-amber-500 mt-1"></i>
+                  <div>
+                    <div class="text-sm font-bold">PIC (Person-in-Charge) Advanced Certification</div>
+                    <div class="text-xs text-slate-500">AAPT Quality & Food Safety Consultancy (Dec 2024)</div>
+                  </div>
+                </div>
+
+                <div class="flex items-start space-x-3">
+                  <i class="fa-solid fa-award text-amber-500 mt-1"></i>
+                  <div>
+                    <div class="text-sm font-bold">ISO 9001:2015 - Quality Management System (QMS)</div>
+                    <div class="text-xs text-slate-500">Alison Certification</div>
+                  </div>
+                </div>
+
+                <div class="flex items-start space-x-3">
+                  <i class="fa-solid fa-award text-amber-500 mt-1"></i>
+                  <div>
+                    <div class="text-sm font-bold">Diploma in Warehouse Management & Fleet Operations</div>
+                    <div class="text-xs text-slate-500">Alison Professional Development</div>
+                  </div>
+                </div>
+
+                <div class="flex items-start space-x-3">
+                  <i class="fa-solid fa-award text-amber-500 mt-1"></i>
+                  <div>
+                    <div class="text-sm font-bold">Basic Food Safety - Food Service</div>
+                    <div class="text-xs text-slate-500">AAPT Quality & Food Safety Consultancy</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Education -->
+              <div class="glass-card p-5 rounded-2xl space-y-3">
+                <div class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">Education & Qualifications</div>
+                
+                <div>
+                  <div class="text-sm font-bold">Diploma of Associate Engineering (DAE) - Electrical</div>
+                  <div class="text-xs text-slate-500">Government Polytechnic Institute of Peshawar</div>
+                </div>
+
+                <div>
+                  <div class="text-sm font-bold">Diploma in Information Technology (DIT)</div>
+                  <div class="text-xs text-slate-500">Silicon Valley Institute of Information Technology</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-2">Get In Touch</h2>
+        <h3 class="text-3xl font-extrabold text-slate-900 dark:text-white">Let's Discuss Operations & Growth</h3>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <div class="lg:col-span-5 space-y-6">
+          <div class="glass-card p-6 rounded-2xl space-y-6">
+            <h4 class="text-xl font-bold">Contact Details</h4>
+
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 rounded-xl bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Location</div>
+                <div class="text-sm font-bold">Dubai, United Arab Emirates</div>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 rounded-xl bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Mobile / WhatsApp</div>
+                <a href="tel:+971547321756" class="text-sm font-bold hover:text-brand-600">+971-54-7321-756</a>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 rounded-xl bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div>
+                <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Email</div>
+                <a href="mailto:Kamranali514@outlook.com" class="text-sm font-bold hover:text-brand-600">Kamranali514@outlook.com</a>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-4">
+              <div class="w-12 h-12 rounded-xl bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl">
+                <i class="fa-brands fa-linkedin"></i>
+              </div>
+              <div>
+                <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">LinkedIn</div>
+                <a href="https://linkedin.com/in/kami514" target="_blank" class="text-sm font-bold hover:text-brand-600">linkedin.com/in/kami514</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <form id="contact-form" class="glass-card p-8 rounded-2xl space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider mb-2">Your Name</label>
+                <input type="text" required class="w-full px-4 py-3 rounded-xl bg-white/70 dark:bg-slate-900/70 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider mb-2">Your Email</label>
+                <input type="email" required class="w-full px-4 py-3 rounded-xl bg-white/70 dark:bg-slate-900/70 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider mb-2">Subject</label>
+              <input type="text" required class="w-full px-4 py-3 rounded-xl bg-white/70 dark:bg-slate-900/70 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider mb-2">Message</label>
+              <textarea rows="4" required class="w-full px-4 py-3 rounded-xl bg-white/70 dark:bg-slate-900/70 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm"></textarea>
+            </div>
+            <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm transition-all shadow-md shadow-brand-600/30">
+              Send Direct Message
+            </button>
+            <p id="form-status" class="text-xs text-center hidden font-semibold text-emerald-600 dark:text-emerald-400 mt-2">
+              Message sent successfully! I will respond shortly.
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-auto border-t border-slate-200 dark:border-slate-800 py-8 bg-white/50 dark:bg-slate-900/50">
+      <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 dark:text-slate-400">
+        © <span id="year"></span> Kamran Ali. All rights reserved. • Logistics & Operations Professional
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Set Current Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Dark Mode Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    themeToggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Dynamic Typing Effect
+    const words = ["Warehouse & Operations Leader", "Supply Chain & Fleet Specialist", "Process Optimization Manager"];
+    let i = 0, j = 0, isDeleting = false;
+    const speed = 100, delay = 2000;
+    const target = document.getElementById("typing-text");
+
+    function typeEffect() {
+      const current = words[i];
+      if (isDeleting) {
+        target.textContent = current.substring(0, j - 1);
+        j--;
+      } else {
+        target.textContent = current.substring(0, j + 1);
+        j++;
+      }
+
+      if (!isDeleting && j === current.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, delay);
+      } else if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % words.length;
+        setTimeout(typeEffect, 300);
+      } else {
+        setTimeout(typeEffect, isDeleting ? speed / 2 : speed);
+      }
+    }
+    typeEffect();
+
+    // Form Submission Mock
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const status = document.getElementById('form-status');
+      status.classList.remove('hidden');
+      e.target.reset();
+      setTimeout(() => status.classList.add('hidden'), 5000);
+    });
+
+    // Interactive Animated Background Canvas
+    const canvas = document.getElementById('canvas-bg');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = Math.random() * 0.5 - 0.25;
+        this.speedY = Math.random() * 0.5 - 0.25;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+      draw() {
+        ctx.fillStyle = '#0284c7';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 40; i++) particles.push(new Particle());
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>
